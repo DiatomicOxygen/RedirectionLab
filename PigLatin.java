@@ -1,6 +1,19 @@
+import java.util.Scanner;
 public class PigLatin {
   public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    Scanner lineSc;
+    String ans = "";
 
+    while (sc.hasNextLine()) {
+      lineSc = new Scanner(sc.nextLine());
+      while (lineSc.hasNext()) {
+        ans += pigLatinBest(lineSc.next()) + " ";
+      }
+      System.out.println(ans);
+      ans = "";
+    }
+    sc.close();
   }
 
   public static String pigLatinSimple(String s) {
