@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.io.File;
 public class MakeStars {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -19,6 +18,7 @@ public class MakeStars {
       System.out.println(ans);
       ans = "";
     }
+    sc.close();
 
   }
 }
