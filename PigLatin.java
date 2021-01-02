@@ -10,6 +10,7 @@ public class PigLatin {
       while (lineSc.hasNext()) {
         ans += pigLatinBest(lineSc.next()) + " ";
       }
+      lineSc.close();
       System.out.println(ans);
       ans = "";
     }
