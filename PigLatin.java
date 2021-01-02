@@ -4,22 +4,24 @@ public class PigLatin {
   }
 
   public static String pigLatinSimple(String s) {
+    String lowerS = s.toLowerCase();
     String ans = "";
-    if (s.charAt(0) == 'a' || s.charAt(0) == 'e' || s.charAt(0) == 'i' || s.charAt(0) == 'o' || s.charAt(0) == 'u') {
-      ans = s + "hay";
+    if (lowerS.charAt(0) == 'a' || lowerS.charAt(0) == 'e' || lowerS.charAt(0) == 'i' || lowerS.charAt(0) == 'o' || lowerS.charAt(0) == 'u') {
+      ans = lowerS + "hay";
     } else {
-      ans = s.substring(1) + s.charAt(0) + "ay";
+      ans = lowerS.substring(1) + lowerS.charAt(0) + "ay";
     }
     return ans;
   }
 
   public static String pigLatin(String s) {
+    String lowerS = s.toLowerCase();
     String ans = "";
     String[] diagraphs = {"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
-    if (s.length() > 1) {
+    if (lowerS.length() > 1) {
       for (String diagraph : diagraphs) {
-        if (s.substring(0,2).equals(diagraph)) {
-          ans = s.substring(2) + diagraph + "ay";
+        if (lowerS.substring(0,2).equals(diagraph)) {
+          ans = lowerS.substring(2) + diagraph + "ay";
           return ans;
         }
       }
@@ -28,16 +30,17 @@ public class PigLatin {
   }
 
   public static String pigLatinBest(String s) {
-    if (!(s.charAt(0) >= 97 && s.charAt(0) <= 122)) {
-      return s;
+    String lowerS = s.toLowerCase();
+    if (!(lowerS.charAt(0) >= 97 && lowerS.charAt(0) <= 122)) {
+      return lowerS;
     }
     String newS = "";
     String punctuation = "";
-    for (int i = 0; i < s.length(); i++) {
-      if ((s.charAt(i) >= 97 && s.charAt(i) <= 122) || s.charAt(i) == 39) {
-        newS += s.charAt(i);
+    for (int i = 0; i < lowerS.length(); i++) {
+      if ((lowerS.charAt(i) >= 97 && lowerS.charAt(i) <= 122) || lowerS.charAt(i) == 39) {
+        newS += lowerS.charAt(i);
       } else {
-        punctuation += s.charAt(i);
+        punctuation += lowerS.charAt(i);
       }
     }
     return pigLatin(newS) + punctuation;
