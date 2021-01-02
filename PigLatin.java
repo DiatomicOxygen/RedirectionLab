@@ -27,5 +27,19 @@ public class PigLatin {
     return pigLatinSimple(s);
   }
 
-
+  public static String pigLatinBest(String s) {
+    if (!(s.charAt(0) >= 97 && s.charAt(0) <= 122)) {
+      return s;
+    }
+    String newS = "";
+    String punctuation = "";
+    for (int i = 0; i < s.length(); i++) {
+      if ((s.charAt(i) >= 97 && s.charAt(i) <= 122) || s.charAt(i) == 39) {
+        newS += s.charAt(i);
+      } else {
+        punctuation += s.charAt(i);
+      }
+    }
+    return pigLatin(newS) + punctuation;
+  }
 }
