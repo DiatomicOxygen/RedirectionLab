@@ -10,6 +10,7 @@ public class PigLatin {
       while (lineSc.hasNext()) {
         ans += pigLatinBest(lineSc.next()) + " ";
       }
+      ans = ans.trim(); //ans = ans.substring(0, ans.length() - 1) also works
       lineSc.close();
       System.out.println(ans);
       ans = "";
